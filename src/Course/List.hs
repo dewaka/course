@@ -99,7 +99,7 @@ product = foldLeft (*) 1
 sum ::
   List Int
   -> Int
-sum = foldLeft (+) 1
+sum = foldLeft (+) 0
 
 -- | Return the length of the list.
 --
@@ -110,8 +110,7 @@ sum = foldLeft (+) 1
 length ::
   List a
   -> Int
-length =
-  error "todo"
+length = foldLeft (\n _ -> n+1) 0
 
 -- | Map the given function on each element of the list.
 --
@@ -201,7 +200,7 @@ flatMap =
 
 -- | Convert a list of optional values to an optional list of values.
 --
--- * If the list contains all `Full` values, 
+-- * If the list contains all `Full` values,
 -- then return `Full` list of values.
 --
 -- * If the list contains one or more `Empty` values,
